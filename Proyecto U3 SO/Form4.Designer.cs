@@ -29,14 +29,15 @@ namespace Proyecto_U3_SO
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.SPNMem = new System.Windows.Forms.NumericUpDown();
+            this.SPNTime = new System.Windows.Forms.NumericUpDown();
+            this.TBName = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,8 +65,10 @@ namespace Proyecto_U3_SO
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.t = new System.Windows.Forms.Timer(this.components);
+            this.Time = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.SPNMem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SPNTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -121,60 +124,61 @@ namespace Proyecto_U3_SO
             this.button1.TabIndex = 25;
             this.button1.Text = "Agregar";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // numericUpDown2
+            // SPNMem
             // 
-            this.numericUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown2.Location = new System.Drawing.Point(307, 205);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
+            this.SPNMem.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SPNMem.Location = new System.Drawing.Point(307, 205);
+            this.SPNMem.Maximum = new decimal(new int[] {
             20,
             0,
             0,
             0});
-            this.numericUpDown2.Minimum = new decimal(new int[] {
+            this.SPNMem.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(241, 31);
-            this.numericUpDown2.TabIndex = 24;
-            this.numericUpDown2.Value = new decimal(new int[] {
+            this.SPNMem.Name = "SPNMem";
+            this.SPNMem.Size = new System.Drawing.Size(241, 31);
+            this.SPNMem.TabIndex = 24;
+            this.SPNMem.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
             // 
-            // numericUpDown1
+            // SPNTime
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(310, 138);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.SPNTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SPNTime.Location = new System.Drawing.Point(310, 138);
+            this.SPNTime.Maximum = new decimal(new int[] {
             20,
             0,
             0,
             0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.SPNTime.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(241, 31);
-            this.numericUpDown1.TabIndex = 23;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.SPNTime.Name = "SPNTime";
+            this.SPNTime.Size = new System.Drawing.Size(241, 31);
+            this.SPNTime.TabIndex = 23;
+            this.SPNTime.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
             // 
-            // textBox9
+            // TBName
             // 
-            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(310, 62);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(238, 31);
-            this.textBox9.TabIndex = 22;
+            this.TBName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBName.Location = new System.Drawing.Point(310, 62);
+            this.TBName.Name = "TBName";
+            this.TBName.Size = new System.Drawing.Size(238, 31);
+            this.TBName.TabIndex = 22;
             // 
             // dataGridView2
             // 
@@ -216,6 +220,7 @@ namespace Proyecto_U3_SO
             this.button3.Size = new System.Drawing.Size(38, 39);
             this.button3.TabIndex = 31;
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // RB
             // 
@@ -225,9 +230,11 @@ namespace Proyecto_U3_SO
             this.RB.TabIndex = 30;
             this.RB.Text = "Reset";
             this.RB.UseVisualStyleBackColor = true;
+            this.RB.Click += new System.EventHandler(this.RB_Click);
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.textBox20, 0, 18);
@@ -278,6 +285,7 @@ namespace Proyecto_U3_SO
             // textBox20
             // 
             this.textBox20.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox20.BackColor = System.Drawing.Color.White;
             this.textBox20.Location = new System.Drawing.Point(3, 363);
             this.textBox20.Name = "textBox20";
             this.textBox20.Size = new System.Drawing.Size(94, 20);
@@ -286,6 +294,7 @@ namespace Proyecto_U3_SO
             // textBox19
             // 
             this.textBox19.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox19.BackColor = System.Drawing.Color.White;
             this.textBox19.Location = new System.Drawing.Point(3, 343);
             this.textBox19.Name = "textBox19";
             this.textBox19.Size = new System.Drawing.Size(94, 20);
@@ -294,6 +303,7 @@ namespace Proyecto_U3_SO
             // textBox18
             // 
             this.textBox18.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox18.BackColor = System.Drawing.Color.White;
             this.textBox18.Location = new System.Drawing.Point(3, 323);
             this.textBox18.Name = "textBox18";
             this.textBox18.Size = new System.Drawing.Size(94, 20);
@@ -302,6 +312,7 @@ namespace Proyecto_U3_SO
             // textBox17
             // 
             this.textBox17.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox17.BackColor = System.Drawing.Color.White;
             this.textBox17.Location = new System.Drawing.Point(3, 303);
             this.textBox17.Name = "textBox17";
             this.textBox17.Size = new System.Drawing.Size(94, 20);
@@ -310,6 +321,7 @@ namespace Proyecto_U3_SO
             // textBox16
             // 
             this.textBox16.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox16.BackColor = System.Drawing.Color.White;
             this.textBox16.Location = new System.Drawing.Point(3, 283);
             this.textBox16.Name = "textBox16";
             this.textBox16.Size = new System.Drawing.Size(94, 20);
@@ -318,6 +330,7 @@ namespace Proyecto_U3_SO
             // textBox15
             // 
             this.textBox15.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox15.BackColor = System.Drawing.Color.White;
             this.textBox15.Location = new System.Drawing.Point(3, 263);
             this.textBox15.Name = "textBox15";
             this.textBox15.Size = new System.Drawing.Size(94, 20);
@@ -326,6 +339,7 @@ namespace Proyecto_U3_SO
             // textBox14
             // 
             this.textBox14.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox14.BackColor = System.Drawing.Color.White;
             this.textBox14.Location = new System.Drawing.Point(3, 243);
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(94, 20);
@@ -334,6 +348,7 @@ namespace Proyecto_U3_SO
             // textBox13
             // 
             this.textBox13.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox13.BackColor = System.Drawing.Color.White;
             this.textBox13.Location = new System.Drawing.Point(3, 223);
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(94, 20);
@@ -342,6 +357,7 @@ namespace Proyecto_U3_SO
             // textBox12
             // 
             this.textBox12.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox12.BackColor = System.Drawing.Color.White;
             this.textBox12.Location = new System.Drawing.Point(3, 203);
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(94, 20);
@@ -350,6 +366,7 @@ namespace Proyecto_U3_SO
             // textBox11
             // 
             this.textBox11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox11.BackColor = System.Drawing.Color.White;
             this.textBox11.Location = new System.Drawing.Point(3, 183);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(94, 20);
@@ -358,6 +375,7 @@ namespace Proyecto_U3_SO
             // textBox10
             // 
             this.textBox10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox10.BackColor = System.Drawing.Color.White;
             this.textBox10.Location = new System.Drawing.Point(3, 163);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(94, 20);
@@ -366,6 +384,7 @@ namespace Proyecto_U3_SO
             // textBox8
             // 
             this.textBox8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox8.BackColor = System.Drawing.Color.White;
             this.textBox8.Location = new System.Drawing.Point(3, 143);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(94, 20);
@@ -374,6 +393,7 @@ namespace Proyecto_U3_SO
             // textBox7
             // 
             this.textBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox7.BackColor = System.Drawing.Color.White;
             this.textBox7.Location = new System.Drawing.Point(3, 123);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(94, 20);
@@ -382,6 +402,7 @@ namespace Proyecto_U3_SO
             // textBox6
             // 
             this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox6.BackColor = System.Drawing.Color.White;
             this.textBox6.Location = new System.Drawing.Point(3, 103);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(94, 20);
@@ -390,6 +411,7 @@ namespace Proyecto_U3_SO
             // textBox5
             // 
             this.textBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox5.BackColor = System.Drawing.Color.White;
             this.textBox5.Location = new System.Drawing.Point(3, 83);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(94, 20);
@@ -398,6 +420,7 @@ namespace Proyecto_U3_SO
             // textBox4
             // 
             this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox4.BackColor = System.Drawing.Color.White;
             this.textBox4.Location = new System.Drawing.Point(3, 63);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(94, 20);
@@ -406,6 +429,7 @@ namespace Proyecto_U3_SO
             // textBox3
             // 
             this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox3.BackColor = System.Drawing.Color.White;
             this.textBox3.Location = new System.Drawing.Point(3, 43);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(94, 20);
@@ -414,6 +438,7 @@ namespace Proyecto_U3_SO
             // textBox2
             // 
             this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox2.BackColor = System.Drawing.Color.White;
             this.textBox2.Location = new System.Drawing.Point(3, 23);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(94, 20);
@@ -422,6 +447,7 @@ namespace Proyecto_U3_SO
             // textBox1
             // 
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox1.BackColor = System.Drawing.Color.White;
             this.textBox1.Location = new System.Drawing.Point(3, 3);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(94, 20);
@@ -437,12 +463,30 @@ namespace Proyecto_U3_SO
             this.button2.TabIndex = 33;
             this.button2.Text = "Compactar";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // t
+            // 
+            this.t.Interval = 1000;
+            this.t.Tick += new System.EventHandler(this.t_Tick);
+            // 
+            // Time
+            // 
+            this.Time.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Time.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Time.ForeColor = System.Drawing.Color.Crimson;
+            this.Time.Location = new System.Drawing.Point(688, 3);
+            this.Time.Name = "Time";
+            this.Time.Size = new System.Drawing.Size(100, 23);
+            this.Time.TabIndex = 34;
+            this.Time.Text = "0";
             // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 493);
+            this.Controls.Add(this.Time);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.button3);
@@ -452,14 +496,16 @@ namespace Proyecto_U3_SO
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.SPNMem);
+            this.Controls.Add(this.SPNTime);
+            this.Controls.Add(this.TBName);
             this.Controls.Add(this.dataGridView2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Form4";
             this.Text = "Particion var";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SPNMem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SPNTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -475,9 +521,9 @@ namespace Proyecto_U3_SO
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.NumericUpDown SPNMem;
+        private System.Windows.Forms.NumericUpDown SPNTime;
+        private System.Windows.Forms.TextBox TBName;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -505,5 +551,7 @@ namespace Proyecto_U3_SO
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Timer t;
+        private System.Windows.Forms.Label Time;
     }
 }

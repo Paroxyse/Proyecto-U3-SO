@@ -47,7 +47,7 @@ namespace Proyecto_U3_SO
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(66, 198);
+            this.button2.Location = new System.Drawing.Point(66, 159);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(353, 65);
             this.button2.TabIndex = 1;
@@ -57,7 +57,7 @@ namespace Proyecto_U3_SO
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(66, 324);
+            this.button3.Location = new System.Drawing.Point(66, 239);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(353, 65);
             this.button3.TabIndex = 2;
@@ -77,14 +77,14 @@ namespace Proyecto_U3_SO
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 462);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(489, 331);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Menú principal";
             this.ResumeLayout(false);

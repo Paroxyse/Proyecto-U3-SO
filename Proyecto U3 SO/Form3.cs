@@ -193,7 +193,7 @@ namespace Proyecto_U3_SO
             LP.Clear();
             dataGridView2.Rows.Clear();
             button3.BackColor = System.Drawing.Color.Red;
-            Time.Text = 0;
+            Time.Text = ""+0;
             for(int i = 0; i < CantidadParticiones; i++)
             {
                 procesos[i] = utilidad.Empty;

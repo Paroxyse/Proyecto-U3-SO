@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,20 @@ namespace Proyecto_U3_SO
         public int Tiempo { get => tiempo; set => tiempo = value; }
         public int Memoria { get => memoria; }
         public string Nombre { get => nombre;  }
+    }
+    public class ProcesoPog : Proceso
+    {
+      int inindex;
+        System.Drawing.Color colorawa;
+
+        
+        public ProcesoPog(string nombre, int tiempo, int memoria) : base(nombre, tiempo, memoria)
+        {
+           
+        }
+
+        public int Inindex { get => inindex; set => inindex = value; }
+        public Color Colorawa { get => colorawa; set => colorawa = value; }
     }
     public static class utilidad
     {

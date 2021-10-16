@@ -142,6 +142,7 @@ namespace Proyecto_U3_SO
             // 
             // panel5
             // 
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.LBN5);
             this.panel5.Controls.Add(this.LbCR5);
             this.panel5.Controls.Add(this.LBT5);
@@ -205,6 +206,7 @@ namespace Proyecto_U3_SO
             // 
             // panel2
             // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.LBN2);
             this.panel2.Controls.Add(this.LbCR2);
             this.panel2.Controls.Add(this.LBT2);
@@ -268,6 +270,7 @@ namespace Proyecto_U3_SO
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.LBN1);
             this.panel1.Controls.Add(this.LbCR1);
             this.panel1.Controls.Add(this.LBT1);
@@ -331,6 +334,7 @@ namespace Proyecto_U3_SO
             // 
             // panel3
             // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.LBN3);
             this.panel3.Controls.Add(this.LbCR3);
             this.panel3.Controls.Add(this.LBT3);
@@ -394,6 +398,7 @@ namespace Proyecto_U3_SO
             // 
             // panel4
             // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.LBN4);
             this.panel4.Controls.Add(this.LbCR4);
             this.panel4.Controls.Add(this.LBT4);
