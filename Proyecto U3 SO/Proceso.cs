@@ -31,11 +31,11 @@ namespace Proyecto_U3_SO
     }
     public static class utilidad
     {
-        static System.Random r;
-        public static string generarNP(string s)
+        static System.Random r=new Random(System.DateTime.Now.Millisecond);
+        public static string generarNP()
         {
-            r = new Random(System.DateTime.Now.Millisecond);
-            string aux = s;
+            
+            string aux = "";
             int Local_random;
             for (int i = 0; i < 3; i++)
             {
@@ -79,7 +79,17 @@ namespace Proyecto_U3_SO
                 }
             }
         } 
-       
+       public static void PauseButton(Button p, Timer t)
+        {
+            if (p.BackColor == System.Drawing.Color.Red)
+            {
+                p.BackColor = System.Drawing.Color.LimeGreen;
+                t.Start();
+                return;
+            }
+            p.BackColor = System.Drawing.Color.Red;
+            t.Stop();
+        }
         
     }
 }
