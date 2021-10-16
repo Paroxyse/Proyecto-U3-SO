@@ -26,11 +26,12 @@ namespace Proyecto_U3_SO
         }
 
         public int Tiempo { get => tiempo; set => tiempo = value; }
-        public int Memoria { get => memoria; set => memoria = value; }
-        public string Nombre { get => nombre; set => nombre = value; }
+        public int Memoria { get => memoria; }
+        public string Nombre { get => nombre;  }
     }
     public static class utilidad
     {
+        public static Proceso Empty= new Proceso("Vacío",0,0);
         static System.Random r=new Random(System.DateTime.Now.Millisecond);
         public static string generarNP()
         {
@@ -67,19 +68,54 @@ namespace Proyecto_U3_SO
             }
             return aux;
         }
-        public static void ActualizarFilas(DataGridView[] aux,Queue<Proceso>[] arp)
+        //Colecciones y dgvs múltiples
+        public static void ActualizarFilas(DataGridView[] aux, IEnumerable<Proceso>[] arp, bool MemReq=false)
         {
 
             for (int i = 0; i < aux.Length; i++)
             {
                 aux[i].Rows.Clear();
-                foreach (Proceso x in arp[i])
-                {
-                    aux[i].Rows.Add(x.Nombre, x.Tiempo);
-                }
+                
+                    foreach (Proceso x in arp[i])
+                    {
+                        if (!MemReq)
+                        { aux[i].Rows.Add(x.Nombre, x.Tiempo);
+                    }
+                    else
+                    {
+                        aux[i].Rows.Add(x.Nombre, x.Tiempo, x.Memoria);
+                    }
+                        
+                    }
+                
+               
             }
-        } 
-       public static void PauseButton(Button p, Timer t)
+        }
+        //Una sola colección y dgv
+        public static void ActualizarFilas(DataGridView aux, IEnumerable<Proceso> arp, bool MemReq = false)
+        {
+
+          
+                aux.Rows.Clear();
+
+                foreach (Proceso x in arp)
+                {
+                    if (!MemReq)
+                    {
+                        aux.Rows.Add(x.Nombre, x.Tiempo);
+                    }
+                    else
+                    {
+                        aux.Rows.Add(x.Nombre, x.Tiempo, x.Memoria);
+                    }
+
+                }
+
+
+            
+        }
+
+        public static void PauseButton(Button p, Timer t)
         {
             if (p.BackColor == System.Drawing.Color.Red)
             {

@@ -17,15 +17,15 @@ namespace Proyecto_U3_SO
         Queue<Proceso>[] qar = new Queue<Proceso>[ProcessTypeCount];
         Proceso[] PAr = new Proceso[ProcessTypeCount];
         System.Random r;
-        Proceso Empty;
+        
         DataGridView[] dgvar;
         TextBox[] tbar;
         public Form2()
         {
             InitializeComponent();
-            utilityinit();
+            UtilityInit();
         }
-        private void utilityinit()
+        private void UtilityInit()
         {
             //Inicializar colas de procesos
             for(int i=0;i<qar.Length;i++)
@@ -38,8 +38,8 @@ namespace Proyecto_U3_SO
             dgvar = new DataGridView[]{
                 dataGridView1,dataGridView2,dataGridView3,dataGridView4};
             //Inicializar Proceso Empty y asignarlo a posiciones de arreglo
-            Empty = new Proceso("Vacío", 1);
-            for(int i = 0; i < ProcessTypeCount; i++) { PAr[i] = Empty; }
+            //utilidad.Empty = new Proceso("Vacío", 1);
+            for(int i = 0; i < ProcessTypeCount; i++) { PAr[i] = utilidad.Empty; }
             //Inicializar arreglo de tb
             tbar = new TextBox[] { 
             EXA, EXB, EXC, EXD        
@@ -54,14 +54,14 @@ namespace Proyecto_U3_SO
             {
                 //Revisa si hay un proceso activo, si es así, decrementa el tiempo
                 MoveToExec(i);
-                if (PAr[i]!=Empty)
+                if (PAr[i]!=utilidad.Empty)
                 {
                     PAr[i].Tiempo--;
                 }
                 //Si el tiempo llega a 0, saca el proceso
-                if (PAr[i] != Empty && PAr[i].Tiempo <= 0)
+                if (PAr[i] != utilidad.Empty && PAr[i].Tiempo <= 0)
                 {
-                    PAr[i] = Empty;
+                    PAr[i] = utilidad.Empty;
                 }
                 //Actualizar texto de ejecución 
                 tbUpdate(i);
@@ -81,7 +81,7 @@ namespace Proyecto_U3_SO
             }
         }
         private void MoveToExec(int i) {
-            if(PAr[i]==Empty && qar[i].Count > 0)
+            if(PAr[i]==utilidad.Empty && qar[i].Count > 0)
             {
                 PAr[i] = qar[i].Dequeue();
                 
@@ -128,7 +128,7 @@ namespace Proyecto_U3_SO
             {
                 dgvar[i].Rows.Clear();
                 qar[i].Clear();
-                PAr[i] = Empty;
+                PAr[i] = utilidad.Empty;
                 tbar[i].Text = "";
             }
             Time.Text = "0";
@@ -136,11 +136,11 @@ namespace Proyecto_U3_SO
         }
         private void ForceEnd(int i)
         {
-            if (PAr[i] == Empty)
+            if (PAr[i] == utilidad.Empty)
             {
                 return;
             }
-            PAr[i]= Empty;
+            PAr[i]= utilidad.Empty;
             tbUpdate(i);
             
         }
